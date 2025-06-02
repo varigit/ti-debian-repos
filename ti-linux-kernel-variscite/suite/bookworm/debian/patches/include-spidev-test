@@ -1,0 +1,33 @@
+From 6e14d27709f627c9298a8fed5286f916ef79de6e Mon Sep 17 00:00:00 2001
+From: pitchaiahp <pitchaiah.p@variscite.com>
+Date: Sat, 31 May 2025 11:12:05 +0200
+Subject: [PATCH]  Update builddeb to add spidev_test
+
+---
+ scripts/package/builddeb | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/scripts/package/builddeb b/scripts/package/builddeb
+index 67cd420dcf89..2503c1b3e928 100755
+--- a/scripts/package/builddeb
++++ b/scripts/package/builddeb
+@@ -135,7 +135,7 @@ BUILD_DEBUG=$(if_enabled_echo CONFIG_DEBUG_INFO Yes)
+ # Setup the directory structure
+ rm -rf "$tmpdir" "$dbg_dir" debian/files
+ mkdir -m 755 -p "$tmpdir/DEBIAN"
+-mkdir -p "$tmpdir/lib" "$tmpdir/boot"
++mkdir -p "$tmpdir/lib" "$tmpdir/boot" "$tmpdir/usr/bin"
+ 
+ # Install the kernel
+ if [ "$ARCH" = "um" ] ; then
+@@ -146,6 +146,7 @@ if [ "$ARCH" = "um" ] ; then
+ else
+ 	cp System.map "$tmpdir/boot/System.map-$version"
+ 	cp $KCONFIG_CONFIG "$tmpdir/boot/config-$version"
++       cp $srctree/tools/spi/spidev_test "$tmpdir/usr/bin"
+ fi
+ cp "$($MAKE -s -f $srctree/Makefile image_name)" "$tmpdir/$installed_image_path"
+ 
+-- 
+2.43.0
+
