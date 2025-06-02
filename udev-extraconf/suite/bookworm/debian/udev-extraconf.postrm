@@ -1,0 +1,6 @@
+#!/bin/sh
+[ "$1" != "upgrade" ] || exit 0
+set -e
+	if [ -e $D/usr/lib/systemd/system/systemd-udevd.service ]; then
+		sed -i "/MountFlags=shared/d" $D/usr/lib/systemd/system/systemd-udevd.service
+	fi

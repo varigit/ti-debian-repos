@@ -1,0 +1,17 @@
+Source: udev-extraconf
+Section: utils
+Priority: optional
+Maintainer: Pitchaiah P <pitchaiah.p@variscite.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Homepage: https://git.openembedded.org/openembedded-core/
+
+Package: udev-extraconf
+Architecture: all
+Depends: ${misc:Depends}, udev, util-linux, systemd | util-linux
+Description: Extra udev configuration
+ This package provides additional udev configuration files and rules
+ used for enhancing device management. It requires basic udev tools
+ and utilities from util-linux, and optionally supports lsblk from
+ util-linux if systemd is in use.
+
