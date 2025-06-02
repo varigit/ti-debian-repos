@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+	if [ -e $D/usr/lib/systemd/system/systemd-udevd.service ]; then
+	        # Change PrivateMounts=yes to PrivateMounts=no
+                sed -i 's/^PrivateMounts=yes$/PrivateMounts=no/' $D/usr/lib/systemd/system/systemd-udevd.service
+                # Remove the SystemCallFilter line
+                sed -i '/^SystemCallFilter=@system-service @module @raw-io bpf$/d' $D/usr/lib/systemd/system/systemd-udevd.service
+                # Add MountFlags=shared after [Service]
+		sed -i "/\[Service\]/aMountFlags=shared" $D/usr/lib/systemd/system/systemd-udevd.service
+	fi

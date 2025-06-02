@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+# Set location of OE folder
+OE_DIR := $(CURDIR)/meta/recipes-core/udev/udev-extraconf
+
+override_dh_auto_install:
+        # Create destination directories
+	install -d debian/udev-extraconf/etc/udev/rules.d
+	install -d debian/udev-extraconf/etc/udev/scripts
+	install -d debian/udev-extraconf/etc/udev/mount.ignorelist.d
+
+    # Install rules files
+	install -m 0644 $(OE_DIR)/automount.rules debian/udev-extraconf/etc/udev/rules.d/
+	install -m 0644 $(OE_DIR)/autonet.rules debian/udev-extraconf/etc/udev/rules.d/
+	install -m 0644 $(OE_DIR)/localextra.rules debian/udev-extraconf/etc/udev/rules.d/
+	install -m 0644 $(OE_DIR)/mount.ignorelist debian/udev-extraconf/etc/udev/
+
+	# Install scripts
+	install -m 0755 $(OE_DIR)/mount.sh debian/udev-extraconf/etc/udev/scripts/
+	install -m 0755 $(OE_DIR)/network.sh debian/udev-extraconf/etc/udev/scripts/
+
+	# Optional sed replacements — only if values are known
+	sed -i 's|@systemd_unitdir@|/usr/lib/systemd/system|g' debian/udev-extraconf/etc/udev/scripts/mount.sh
+	sed -i 's|@base_sbindir@|/usr/sbin|g' debian/udev-extraconf/etc/udev/scripts/mount.sh
+	sed -i 's|@MOUNT_BASE@|/run/media|g' debian/udev-extraconf/etc/udev/scripts/mount.sh
+
