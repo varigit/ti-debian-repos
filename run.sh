@@ -49,10 +49,17 @@ if [ ! -f "${builddir}/${package_full_ll}.orig.tar.gz" ]; then
     fi
     git -C "${sourcedir}/${package_name}" remote update
     git -C "${sourcedir}/${package_name}" checkout "${last_tested_commit}"
-    tar -czf "${builddir}/${package_full_ll}.orig.tar.gz" \
-      --exclude-vcs \
-      --absolute-names "${sourcedir}/${package_name}" \
-      --transform "s,${sourcedir}/${package_name},${package_full},"
+    if [ "$(basename "${git_repo}" .git)" = "Native_SDK" ]; then
+	    echo "Detected Native_SDK repo, including .git repo"
+	    tar -czf "${builddir}/${package_full_ll}.orig.tar.gz" \
+	      --absolute-names "${sourcedir}/${package_name}" \
+              --transform "s,${sourcedir}/${package_name},${package_full},"
+    else
+            tar -czf "${builddir}/${package_full_ll}.orig.tar.gz" \
+              --exclude-vcs \
+              --absolute-names "${sourcedir}/${package_name}" \
+              --transform "s,${sourcedir}/${package_name},${package_full},"
+    fi
 fi
 
 # Generate source package if none found

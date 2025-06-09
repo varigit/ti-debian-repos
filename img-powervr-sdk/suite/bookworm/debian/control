@@ -1,0 +1,14 @@
+Source: img-powervr-sdk
+Section: graphics
+Priority: optional
+Maintainer: Pitchaiah P <pitchaiah.p@variscite.com>
+Build-Depends: debhelper-compat (= 13), cmake, pkg-config, wayland-protocols, libwayland-dev
+Standards-Version: 4.6.2
+Homepage: https://docs.imgtec.com
+
+Package: img-powervr-sdk
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libwayland-egl1-mesa
+Description: Imagination PowerVR SDK binaries and OpenGLES examples
+ Contains OpenGLES example demos for Wayland windowing system using Imagination's SDK.
+

@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/pkg-info.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-DPVR_WINDOW_SYSTEM=Wayland \
+		-DPVR_BUILD_OPENGLES_EXAMPLES=On \
+		-DPVR_BUILD_VULKAN_EXAMPLES=Off
+
+override_dh_auto_build:
+	dh_auto_build
+
+override_dh_auto_install:
+	install -d $(CURDIR)/debian/img-powervr-sdk/usr/bin/SGX/demos/Wayland
+	cp -a $(CURDIR)/obj-aarch64-linux-gnu/bin/Assets_OpenGLESBinaryShaders $(CURDIR)/debian/img-powervr-sdk/usr/bin/SGX/demos/Wayland/
+	cp -a $(CURDIR)/obj-aarch64-linux-gnu/bin/OpenGLESBinaryShaders $(CURDIR)/debian/img-powervr-sdk/usr/bin/SGX/demos/Wayland/
+
