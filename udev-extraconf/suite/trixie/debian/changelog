@@ -1,5 +1,7 @@
-udev-extraconf (1.1+29d920f4c2249df7a69f00100924b4525e03c0d9-r0) unstable; urgency=low
+udev-extraconf (1.1+29d920f4c2249df7a69f00100924b4525e03c0d9-r0) trixie; urgency=medium
 
-  * Initial release.
-
- -- Pitchaiah P <pitchaiah.p@variscite.com>  Fri, 30 Sep 2025 20:59:24 +0000
+  * Add support for Debian Trixie.
+  * Use systemd-mount for udev-triggered filesystem mounts.
+  * Remove modifications to systemd-udevd.service.
+  * Update Debian package dependencies.
+ -- Matthias P <matthias.p@variscite.com>  Tue, 25 Aug 2026 12:09:12 +0000
