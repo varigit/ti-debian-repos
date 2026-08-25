@@ -8,7 +8,7 @@ Homepage: https://git.openembedded.org/openembedded-core/
 
 Package: udev-extraconf
 Architecture: all
-Depends: ${misc:Depends}, udev, util-linux, systemd | util-linux
+Depends: ${misc:Depends}, udev, util-linux, systemd, mount
 Description: Extra udev configuration
  This package provides additional udev configuration files and rules
  used for enhancing device management. It requires basic udev tools
