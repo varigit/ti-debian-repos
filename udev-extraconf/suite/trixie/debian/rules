@@ -14,7 +14,6 @@ override_dh_auto_install:
 
 	# Install rules files
 	install -m 0644 $(OE_DIR)/automount.rules debian/udev-extraconf/etc/udev/rules.d/
-	install -m 0644 $(OE_DIR)/localextra.rules debian/udev-extraconf/etc/udev/rules.d/
 	install -m 0644 $(OE_DIR)/mount.ignorelist debian/udev-extraconf/etc/udev/
 
 	# Install scripts
