@@ -7,12 +7,12 @@
 OE_DIR := $(CURDIR)/meta/recipes-core/udev/udev-extraconf
 
 override_dh_auto_install:
-        # Create destination directories
+	# Create destination directories
 	install -d debian/udev-extraconf/etc/udev/rules.d
 	install -d debian/udev-extraconf/etc/udev/scripts
 	install -d debian/udev-extraconf/etc/udev/mount.ignorelist.d
 
-    # Install rules files
+	# Install rules files
 	install -m 0644 $(OE_DIR)/automount.rules debian/udev-extraconf/etc/udev/rules.d/
 	install -m 0644 $(OE_DIR)/autonet.rules debian/udev-extraconf/etc/udev/rules.d/
 	install -m 0644 $(OE_DIR)/localextra.rules debian/udev-extraconf/etc/udev/rules.d/
