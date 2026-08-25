@@ -23,7 +23,7 @@ override_dh_auto_install:
 	install -m 0755 $(OE_DIR)/network.sh debian/udev-extraconf/etc/udev/scripts/
 
 	# Optional sed replacements — only if values are known
-	sed -i 's|@systemd_unitdir@|/usr/lib/systemd/system|g' debian/udev-extraconf/etc/udev/scripts/mount.sh
+	sed -i 's|@systemd_unitdir@|/usr/lib/systemd|g' debian/udev-extraconf/etc/udev/scripts/mount.sh
 	sed -i 's|@base_sbindir@|/usr/sbin|g' debian/udev-extraconf/etc/udev/scripts/mount.sh
 	sed -i 's|@MOUNT_BASE@|/run/media|g' debian/udev-extraconf/etc/udev/scripts/mount.sh
 
