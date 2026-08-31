@@ -1,0 +1,25 @@
+Description: Do not require Git metadata for populated submodules
+ The Debian orig tarball contains the initialized submodule sources but
+ excludes VCS metadata. Detect populated submodules by their contents
+ instead of requiring a .git file.
+Author: Matthias Proske
+Forwarded: no
+Last-Update: 2026-08-31
+
+--- a/cmake/utilities/submodules.cmake
++++ b/cmake/utilities/submodules.cmake
+@@ -14,9 +14,11 @@ function(add_submodule_to_sdk SUBMODULE_PATH)
+ 	# Get the name of the submodule by getting the last directory name
+ 	get_filename_component(SUBMODULE_NAME "${SUBMODULE_PATH}" NAME)
+ 
+-	# Now check if there is a .git file, this confirms that the submodule has been 
+-	# pulled from github
+-	if(NOT EXISTS ${SUBMODULE_PATH}/source/.git)
++	# Check whether the submodule source directory has been populated.
++	# Git metadata may not be present, e.g. when building from a source archive.
++	file(GLOB SUBMODULE_CONTENTS "${SUBMODULE_PATH}/source/*")
++
++	if(NOT SUBMODULE_CONTENTS)
+ 		message("Submodule ${SUBMODULE_NAME} not initalised, Attempting to fetch now")
+ 
+ 		# Find the git command once and only once
