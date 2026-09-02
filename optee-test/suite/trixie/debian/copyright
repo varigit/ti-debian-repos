@@ -1,0 +1,89 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: optee-test
+Source: https://github.com/OP-TEE/optee_test.git
+
+Files: *
+Copyright: 2014-2023, Linaro Limited
+2014, STMicroelectronics International N.V.
+2019, Mentor Graphics Corporation
+2020-2024, Huawei Technologies Co., Ltd
+2021, Open Mobile Platform LLC
+2020, ARM Limited.
+License: BSD-2-Clause
+
+Files: host/supp_plugin/*
+Copyright: 2021 Open Mobile Platform LLC
+License: BSD-2-Clause
+
+Files: host/xtest/*
+Copyright: 2014-2023, Linaro Limited
+2014, STMicroelectronics International N.V.
+2020-2023, ARM Limited and Contributors.
+2011, Google, Inc.
+2021, SumUp Services GmbH
+License: GPL-2.0
+
+Files: host/xtest/aes_gcm_counter_overflow_test_decrypt.h
+host/xtest/aes_gcm_counter_overflow_test_encrypt.h
+scripts/aes_gcm_test.py
+Copyright: 2024, NXP
+License: Apache-2.0
+
+Files: host/xtest/asym_perf.c
+host/xtest/gp/patches/0002-TTAs-add-files-needed-to-compile.patch
+Copyright: 2020-2024, Huawei Technologies Co., Ltd
+2014, STMicroelectronics International N.V.
+License: BSD-2-Clause
+
+Files: host/xtest/ffa_spmc_1000.c
+ta/crypt/include/sha2_impl.h
+ta/crypt/sha2_impl.c
+ta/tpm_log_test/*
+Copyright: 2022-2023, Arm Limited and Contributors.
+2014, STMicroelectronics International N.V.
+License: BSD-3-Clause
+
+Files: debian/*
+Copyright: 2026 Variscite Ltd.
+License: BSD-2-Clause
+
+License: GPL-2.0
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License version 2.
+.
+On Debian systems, the complete text of the GNU General Public License
+version 2 can be found in /usr/share/common-licenses/GPL-2.
+
+License: Apache-2.0
+On Debian systems, the complete text of the Apache License, Version 2.0
+can be found in /usr/share/common-licenses/Apache-2.0.
+
+License: BSD-2-Clause
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+.
+
+1. Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+   .
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+   .
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+   ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+   CONSEQUENTIAL DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE.
+
+License: BSD-3-Clause
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the copyright notice, conditions
+and disclaimer are retained, and neither the copyright holder's name nor
+contributors' names are used to endorse derived products without specific
+prior permission.
+.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS",
+WITHOUT WARRANTY OF ANY KIND.
+

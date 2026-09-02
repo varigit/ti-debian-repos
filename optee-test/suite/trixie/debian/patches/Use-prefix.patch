@@ -1,0 +1,20 @@
+Description: Use prefix and exec_prefix for installation paths
+Author: Debian OP-TEE maintainers
+Forwarded: no
+Last-Update: 2026-09-02
+
+--- a/Makefile
++++ b/Makefile
+@@ -10,8 +10,10 @@
+ endif
+ endif
+ 
+-bindir ?= /bin
+-libdir ?= /lib
++prefix ?= /usr
++exec_prefix ?= $(prefix)
++bindir ?= $(exec_prefix)/bin
++libdir ?= $(exec_prefix)/lib
+ 
+ -include $(TA_DEV_KIT_DIR)/host_include/conf.mk
+ -include $(OPTEE_CLIENT_EXPORT)/include/optee_client_config.mk

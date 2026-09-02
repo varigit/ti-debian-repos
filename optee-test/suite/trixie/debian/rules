@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+export TA_DEV_KIT_DIR = /usr/lib/optee-os-dev/arm-plat-k3
+export OPTEE_CLIENT_EXPORT = /usr
+export OPTEE_OPENSSL_EXPORT = /usr/include/
+
+export V = 1
+export CROSS_COMPILE = $(DEB_HOST_GNU_TYPE)-
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# Required by the Debian packaging and OP-TEE build.
+export DEB_CFLAGS_MAINT_APPEND = -Wno-format-truncation -Wno-error=deprecated-declarations
+
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY = 1
+
+%:
+	dh $@

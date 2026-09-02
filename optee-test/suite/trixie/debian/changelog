@@ -1,0 +1,7 @@
+optee-test (4.7.0+git20250616+a15be9e-1) trixie; urgency=low
+
+  * Initial Debian package for TI K3 platforms.
+  * Use OP-TEE test suite revision from TI SDK 11.02.08.
+  * Build Trusted Applications using the K3 OP-TEE TA development kit.
+
+ -- <Matthias Proske> <matthias.p@variscite.com>  Wed, 02 Sep 2026 15:00:00 +0200
