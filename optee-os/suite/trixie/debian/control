@@ -1,0 +1,24 @@
+Source: optee-os
+Section: devel
+Priority: optional
+Maintainer: Matthias Proske <matthias.p@variscite.com>
+Build-Depends: debhelper-compat (= 13),
+               device-tree-compiler,
+               python3,
+               python3-cryptography,
+               python3-pyelftools
+Standards-Version: 4.7.2
+Homepage: https://www.trustedfirmware.org/projects/op-tee
+Rules-Requires-Root: no
+
+Package: optee-os-dev
+Architecture: arm64
+Depends: ${misc:Depends},
+         python3
+Description: SDK of OP-TEE Trusted OS for Texas Instruments K3 platforms
+ OP-TEE is a Trusted Execution Environment designed as a companion to a
+ non-secure Linux kernel running on Arm processors using TrustZone.
+ .
+ This package contains the Trusted Application development kit generated
+ from OP-TEE OS for Texas Instruments K3 platforms. It can be used to build
+ AArch64 Trusted Applications for systems such as the AM62x and AM62P.

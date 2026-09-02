@@ -1,0 +1,317 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: optee_os
+Source: https://github.com/OP-TEE/optee_os
+
+Files: *
+Copyright: 2013-2023, Linaro Ltd.
+2001-2007, Tom St Denis
+2019-2023, Hisilicon Technologies Co., Ltd.
+2022, Tianjia Zhang [tianjia.zhang@linux.alibaba.com](mailto:tianjia.zhang@linux.alibaba.com)
+2022, Alibaba Group.
+2013-2023, ARM Limited and Contributors.
+2014-2023, STMicroelectronics International N.V.
+2015-2016, Freescale Semiconductor, Inc.
+2017, Fuzhou Rockchip Electronics Co., Ltd.
+2023, Amazon.com Inc. or its affiliates.
+2017-2023, NXP
+2019-2022, Huawei Technologies Co., Ltd
+2020-2022, Foundries Ltd
+2020-2021, Jorge Ramirez [jorge@foundries.io](mailto:jorge@foundries.io), Foundries Ltd.
+2013, Eitan Adler.
+2013-2014, Rui Paulo.
+2013-2014, Ian Lepore.
+2013-2014, Andrew Turner.
+2020, Carlo Caione [ccaione@baylibre.com](mailto:ccaione@baylibre.com)
+2021-2023, Aspeed Technology Inc.
+2019, Broadcom.
+2020, Marek Vasut
+2016, Wind River Systems.
+2022, Microsoft Corporation.
+2019-2020, Pengutronix
+2020, Rouven Czerwinski [entwicklung@pengutronix.de](mailto:entwicklung@pengutronix.de)
+2015-2023, Marvell International Ltd.
+2022-2023, Nuvoton Ltd.
+2017-2021, EPAM Systems
+2016, GlobalLogic
+2019, Theobroma Systems Design und Consulting GmbH
+2016, Sequitur Labs Inc.
+2019-2020, Renesas Electronics Corporation
+2017, Schneider Electric
+2017, Timesys Corporation.
+2019-2023, Microchip
+2021, Bootlinc
+2016, Spreadtrum Communications Inc.
+2014, Allwinner Technology Co., Ltd.
+2018, Amit Singh Tomar [amittomer25@gmail.com](mailto:amittomer25@gmail.com)
+2015-2023, Texas Instruments Incorporated
+2017, Socionext Inc.
+2016, Xilinx Inc.
+2023, Andes Technology Corporation
+2015, The FreeBSD Foundation
+2021, SumUp Service GmbH
+2010-2015, Atmel Corporation
+2023, Google Limited
+2019, Bryan ODonoghue
+2021-2022, Vaisala Oyj
+2020, Open Mobile Platform LLC
+2022, Technology Innovation Institute (TII)
+2022, Beijing ESWIN Computing Technology Co., Ltd.
+2023, ESWIN Corp. or its affiliates.
+1996-1998, John D. Polstra.
+2000-2011, David E. OBrien
+2012, The Android Open Source Project
+2019, KAIST
+License: BSD-2-Clause
+
+Files: core/arch/arm/include/ffa.h
+core/arch/arm/include/hafnium.h
+core/arch/arm/kernel/cache_helpers_a32.S
+core/arch/arm/kernel/cache_helpers_a64.S
+core/arch/arm/kernel/spin_lock_a32.S
+core/arch/arm/plat-hikey/hikey_peripherals.h
+core/arch/arm/plat-stm32mp1/nsec-service/stm32mp1_smc.h
+core/arch/riscv/include/encoding.h
+core/drivers/scmi-msg/*
+core/drivers/stm32_bsec.c
+core/drivers/stm32_gpio.c
+core/drivers/stm32_iwdg.c
+core/drivers/stm32_rng.c
+core/drivers/stm32_tamp.c
+core/drivers/stpmic1.c
+core/drivers/stm32_etzpc.c
+core/include/drivers/scmi-msg.h
+core/include/drivers/scmi.h
+core/include/drivers/stm32_bsec.h
+core/include/drivers/stm32_gpio.h
+core/include/drivers/stm32_iwdg.h
+core/include/drivers/stm32_tamp.h
+core/include/drivers/stm32mp13_rcc.h
+core/include/drivers/stm32mp1_rcc.h
+core/include/drivers/stpmic1.h
+core/include/drivers/stm32_etzpc.h
+core/include/kernel/tpm.h
+core/kernel/tpm.c
+core/pta/scp03.c
+lib/libutee/include/pta_apdu.h
+lib/libutee/include/pta_scp03.h
+lib/libutils/ext/include/bitstring.h
+lib/libutils/ext/include/confine_array_index.h
+lib/libutils/ext/strlcat.c
+lib/libutils/ext/strlcpy.c
+lib/libutils/isoc/arch/arm/setjmp_a32.S
+lib/libutils/isoc/arch/arm/setjmp_a64.S
+lib/libutils/isoc/arch/arm/softfloat/*
+lib/libutils/isoc/include/setjmp.h
+lib/libutils/isoc/include/sys/queue.h
+lib/libutils/isoc/newlib/*
+scripts/mem_usage.py
+Copyright: 2014-2022, Linaro Ltd and Contributors.
+2011-2023, ARM Limited and Contributors.
+2018, The Hafnium Authors.
+2014-2023, STMicroelectronics International N.V.
+2016, Hisilicon Ltd and Contributors.
+2022, RISC-V International
+2020-2021, Foundries Ltd.
+1988-2014, The Regents of the University of California.
+2019, The Fuchsia Authors.
+1998, Todd C. Miller [Todd.Miller@courtesan.com](mailto:Todd.Miller@courtesan.com)
+1994-2009, Red Hat, Inc.
+1989-2015, The Regents of the University of California.
+2015, John R. Hauser
+2022-2023, NXP
+License: BSD-3-Clause
+
+Files: core/drivers/versal_gpio.c
+core/drivers/versal_trng.c
+Copyright: 2002-2022 Xilinx, Inc.
+2022 Foundries.io Ltd.
+License: MIT
+
+Files: lib/libutils/ext/consttime_memcmp.c
+Copyright: 2019, Linaro Limited
+2004-2007, 2011-2012, Internet Systems Consortium, Inc.
+1999-2001, 2003, Internet Software Consortium.
+License: ISC
+
+Files: lib/libutils/ext/include/speculation_barrier.h
+Copyright: 2017, Arm Limited.
+License: BSL-1.0
+
+Files: core/lib/libtomcrypt/src/*
+Copyright: LibTomCrypt
+2012, Samuel Neves [sneves@dei.uc.pt](mailto:sneves@dei.uc.pt)
+Cryptico A/S.
+2005, X-CRYPT project
+License: Unlicense
+
+Files: core/arch/arm/kernel/spin_lock_a64.S
+core/arch/arm/mm/core_mmu_lpae.c
+core/drivers/tzc400.c
+core/include/drivers/tzc400.h
+lib/libutils/ext/snprintk.c
+lib/libutee/arch/arm/gprof/gmon.h
+lib/libutee/arch/arm/gprof/gprof.c
+Copyright: 2015-2022, Linaro Limited
+2013-2022, ARM Limited and Contributors
+1986-1993, The Regents of the University of California.
+1986-1993, UNIX System Laboratories, Inc.
+License: BSD-2-Clause AND BSD-3-Clause
+
+Files: lib/libutee/arch/arm/gprof/gmon_out.h
+Copyright: 2016, Linaro Limited
+1996-2016, Free Software Foundation, Inc.
+License: BSD-2-Clause AND LGPL-2.1+
+
+Files: core/arch/riscv/kernel/kern.ld.S
+Copyright: 2022-2023, NXP
+2014, Linaro Limited
+2008-2010, Travis Geiselbrecht
+License: BSD-2-Clause AND MIT
+
+Files: core/lib/libfdt/*
+Copyright: 2006-2014, David Gibson, IBM Corporation.
+2018, embedded brains GmbH
+2012, Kim Phillips, Freescale Semiconductor.
+2016, Free Electrons
+2016, NextThing Co.
+License: GPL-2+ OR BSD-2-Clause
+
+Files: core/arch/arm/dts/sama5d2-pinfunc.h
+core/arch/arm/dts/stm32mp157a-dhcor-avenger96.dts
+core/arch/arm/dts/stm32mp15xx-dhcor-avenger96.dtsi
+core/arch/arm/dts/stm32mp15xx-dhcor-io1v8.dtsi
+core/arch/arm/dts/stm32mp15xx-dhcor-som.dtsi
+core/arch/arm/plat-stm32mp1/drivers/stm32mp1_etzpc.h
+core/include/dt-bindings/*
+Copyright: 2018-2020, NXP
+2018-2021, Microchip Technology, Inc.
+2019, Linaro Ltd
+2019, Manivannan Sadhasivam [manivannan.sadhasivam@linaro.org](mailto:manivannan.sadhasivam@linaro.org)
+2020, Marek Vasut [marex@denx.de](mailto:marex@denx.de)
+2022, DH electronics GmbH
+2018-2023, STMicroelectronics
+2013, Ludovic Desroches [ludovic.desroches@atmel.com](mailto:ludovic.desroches@atmel.com)
+2015, Cyrille Pitchen [cyrille.pitchen@atmel.com](mailto:cyrille.pitchen@atmel.com)
+License: GPL-2 OR BSD-3-Clause
+
+Files: core/arch/arm/dts/stm32mp131.dtsi
+core/arch/arm/dts/stm32mp133.dtsi
+core/arch/arm/dts/stm32mp135.dtsi
+core/arch/arm/dts/stm32mp135f-dk.dts
+core/arch/arm/dts/stm32mp13-pinctrl.dtsi
+core/arch/arm/dts/stm32mp13xc.dtsi
+core/arch/arm/dts/stm32mp13xf.dtsi
+core/arch/arm/dts/stm32mp151.dtsi
+core/arch/arm/dts/stm32mp153.dtsi
+core/arch/arm/dts/stm32mp157a-dk1.dts
+core/arch/arm/dts/stm32mp157c-dhcom-pdk2.dts
+core/arch/arm/dts/stm32mp157c-dk2.dts
+core/arch/arm/dts/stm32mp157c-ed1.dts
+core/arch/arm/dts/stm32mp157c-ev1.dts
+core/arch/arm/dts/stm32mp157.dtsi
+core/arch/arm/dts/stm32mp15-pinctrl.dtsi
+core/arch/arm/dts/stm32mp15xc.dtsi
+core/arch/arm/dts/stm32mp15xxaa-pinctrl.dtsi
+core/arch/arm/dts/stm32mp15xxab-pinctrl.dtsi
+core/arch/arm/dts/stm32mp15xxac-pinctrl.dtsi
+core/arch/arm/dts/stm32mp15xxad-pinctrl.dtsi
+core/arch/arm/dts/stm32mp15xx-dhcom-pdk2.dtsi
+core/arch/arm/dts/stm32mp15xx-dhcom-som.dtsi
+core/arch/arm/dts/stm32mp15xx-dkx.dtsi
+core/drivers/clk/sam/*
+core/include/dt-bindings/clock/*
+Copyright: 2017-2022, STMicroelectronics
+2019-2022, Alexandre Torgue [alexandre.torgue@foss.st.com](mailto:alexandre.torgue@foss.st.com)
+2017, Ludovic Barre [ludovic.barre@st.com](mailto:ludovic.barre@st.com)
+2019-2020, Marek Vasut [marex@denx.de](mailto:marex@denx.de)
+2022, DH electronics GmbH
+2021, Microchip
+2013, Boris BREZILLON [b.brezillon@overkiz.com](mailto:b.brezillon@overkiz.com)
+2017, Free Electrons
+2014-2021, Atmel Corporation
+SAN People
+2005, Ivan Kokshaysky
+2018-2021, Microchip Technology Inc
+License: GPL-2+ OR BSD-3-Clause
+
+Files: core/arch/arm/dts/sama5d2.dtsi
+core/arch/arm/dts/at91-sama5d27_som1_ek.dts
+core/arch/arm/dts/at91-sama5d27_wlsom1_ek.dts
+core/arch/arm/dts/at91-sama5d2_xplained.dts
+core/arch/arm/dts/at91-sama5d27_som1.dtsi
+core/arch/arm/dts/at91-sama5d27_wlsom1.dtsi
+Copyright: 2015, Atmel
+2015, Ludovic Desroches [ludovic.desroches@atmel.com](mailto:ludovic.desroches@atmel.com)
+2015-2019, Nicolas Ferre [nicolas.ferre@atmel.com](mailto:nicolas.ferre@atmel.com)
+2017-2019, Microchip Technology Inc. and its subsidiaries
+2017, Cristian Birsan [cristian.birsan@microchip.com](mailto:cristian.birsan@microchip.com)
+2017, Claudiu Beznea [claudiu.beznea@microchip.com](mailto:claudiu.beznea@microchip.com)
+2019, Eugen Hristev [eugen.hristev@microcihp.com](mailto:eugen.hristev@microcihp.com)
+License: GPL-2+ OR MIT
+
+Files: core/arch/arm/dts/fsl-lx2160a*
+core/include/dt-bindings/interrupt-controller/*
+Copyright: 2018-2020, NXP
+License: GPL-2 OR MIT
+
+Files: core/lib/zlib/*
+Copyright: 1995-2022, Mark Adler
+1995-2022, Jean-loup Gailly
+License: Zlib
+
+Files: lib/libmbedtls/mbedtls/*
+core/crypto/aes-gcm-ghash-tbl.c
+lib/libutils/ext/include/config.h
+Copyright: The Mbed TLS Contributors
+2017-2020, Linaro Limited
+2006-2015, ARM Limited
+2017, Intel Corporation
+License: Apache-2.0
+
+Files: debian/*
+Copyright: 2026, Variscite Ltd.
+License: BSD-2-Clause
+
+License: GPL-2
+On Debian systems, the complete text of version 2 of the GNU General
+Public License can be found in /usr/share/common-licenses/GPL-2.
+
+License: GPL-2+
+On Debian systems, the complete text of version 2 of the GNU General
+Public License can be found in /usr/share/common-licenses/GPL-2.
+
+License: LGPL-2.1+
+On Debian systems, the complete text of the GNU Lesser General Public
+License version 2.1 can be found in /usr/share/common-licenses/LGPL-2.1.
+
+License: Apache-2.0
+On Debian systems, the complete text of the Apache License version 2.0
+can be found in /usr/share/common-licenses/Apache-2.0.
+
+License: BSD-2-Clause
+See the corresponding copyright and license notices in the upstream
+source files and the top-level LICENSE file.
+
+License: BSD-3-Clause
+See the corresponding copyright and license notices in the upstream
+source files.
+
+License: MIT
+See the corresponding copyright and license notices in the upstream
+source files.
+
+License: ISC
+See the corresponding copyright and license notice in
+lib/libutils/ext/consttime_memcmp.c.
+
+License: BSL-1.0
+See the corresponding copyright and license notice in
+lib/libutils/ext/include/speculation_barrier.h.
+
+License: Unlicense
+See the corresponding copyright and license notice in the
+core/lib/libtomcrypt source tree.
+
+License: Zlib
+See the corresponding copyright and license notices in core/lib/zlib.
+

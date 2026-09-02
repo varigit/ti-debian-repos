@@ -1,0 +1,8 @@
+optee-os (4.7.0+git20250807+a9690ae-1) trixie; urgency=low
+
+  * Update OP-TEE OS development kit to version 4.7.0.
+  * Use the OP-TEE revision selected by TI SDK 11.02.08.
+  * Build the Trusted Application development kit for TI K3 platforms.
+  * Build only the AArch64 TA development kit.
+
+ -- Matthias Proske <matthias.p@variscite.com>  Wed, 02 Sep 2026 17:30:00 +0200
