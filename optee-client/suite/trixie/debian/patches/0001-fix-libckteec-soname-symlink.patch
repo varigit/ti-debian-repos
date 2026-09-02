@@ -1,0 +1,12 @@
+Description: Point the libckteec SONAME symlink directly at the library
+Author: Debian OP-TEE maintainers
+Forwarded: no
+
+--- a/libckteec/Makefile
++++ b/libckteec/Makefile
+@@ -61,7 +61,7 @@
+ libckteec:
+ 	$(VPREFIX)ln -sf $(LIB_MAJ_MIN_PAT) $(OUT_DIR)/$(LIB_MAJ_MIN)
+-	$(VPREFIX)ln -sf $(LIB_MAJ_MIN) $(OUT_DIR)/$(LIB_MAJOR)
++	$(VPREFIX)ln -sf $(LIB_MAJ_MIN_PAT) $(OUT_DIR)/$(LIB_MAJOR)
+ 	$(VPREFIX)ln -sf $(LIB_MAJOR) $(OUT_DIR)/$(LIB_NAME).so

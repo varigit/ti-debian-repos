@@ -1,0 +1,84 @@
+Source: optee-client
+Section: libs
+Priority: optional
+Maintainer: Matthias Proske <matthias.p@variscite.com>
+Build-Depends: debhelper-compat (= 13),
+               dpkg-dev (>= 1.22.5),
+               pkgconf,
+               uuid-dev
+Standards-Version: 4.7.0
+Homepage: https://github.com/OP-TEE/optee_client
+Rules-Requires-Root: no
+
+Package: optee-client-dev
+Section: libdevel
+Architecture: arm64 armhf
+Multi-Arch: same
+Depends: libckteec0t64 (= ${binary:Version}),
+         libseteec0t64 (= ${binary:Version}),
+         libteeacl0.1.0t64 (= ${binary:Version}),
+         libteec2 (= ${binary:Version}),
+         ${misc:Depends}
+Description: OP-TEE client development files
+ OP-TEE is a Trusted Execution Environment designed to run alongside
+ a non-secure Linux kernel on Arm systems using TrustZone.
+ .
+ This package contains the headers and shared-library development
+ files for the OP-TEE client APIs.
+
+Package: libteec2
+Architecture: arm64 armhf
+Multi-Arch: same
+Provides: ${t64:Provides}
+Replaces: libteec1
+Breaks: libteec1 (<< ${source:Version})
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: OP-TEE Client API library
+ This package contains libteec, the normal-world library implementing
+ the GlobalPlatform TEE Client API for communicating with OP-TEE.
+
+Package: libckteec0t64
+Architecture: arm64 armhf
+Multi-Arch: same
+Provides: ${t64:Provides}
+Replaces: libckteec0
+Breaks: libckteec0 (<< ${source:Version})
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: OP-TEE PKCS#11 client library
+ This package contains libckteec, the OP-TEE client library used for
+ communication with the PKCS#11 trusted application.
+
+Package: libseteec0t64
+Architecture: arm64 armhf
+Multi-Arch: same
+Provides: ${t64:Provides}
+Replaces: libseteec0
+Breaks: libseteec0 (<< ${source:Version})
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: OP-TEE secure element client library
+ This package contains libseteec, the OP-TEE secure element client
+ library.
+
+Package: libteeacl0.1.0t64
+Architecture: arm64 armhf
+Multi-Arch: same
+Provides: ${t64:Provides}
+Replaces: libteeacl0.1.0
+Breaks: libteeacl0.1.0 (<< ${source:Version})
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: OP-TEE access control library
+ This package contains libteeacl, the access control support library
+ used by OP-TEE client components.
+
+Package: tee-supplicant
+Architecture: arm64 armhf
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: OP-TEE supplicant daemon
+ tee-supplicant provides normal-world services requested by OP-TEE,
+ including access to the REE filesystem, RPMB and dynamically loaded
+ trusted applications.

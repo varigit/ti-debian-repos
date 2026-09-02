@@ -1,0 +1,7 @@
+optee-client (4.7.0+git20250611+23c112a-1) trixie; urgency=low
+
+  * Update OP-TEE client to version 4.7.0.
+  * Use the revision selected by TI SDK 11.02.08.
+  * Base Debian packaging on the package layout used by Debian Trixie.
+
+ -- Matthias Proske <matthias.p@variscite.com>  Wed, 02 Sep 2026 16:30:00 +0200
