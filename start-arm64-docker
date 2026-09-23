@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+DEB_SUITE="${DEB_SUITE:-trixie}"
+IMAGE="debian-arm64-build:${DEB_SUITE}"
+
+if ! docker image inspect "$IMAGE" >/dev/null 2>&1; then
+    echo "Docker image '$IMAGE' is not available."
+    echo
+    echo "Please see README for details on how to build it"
+    exit 1
+fi
+
+docker run --rm -it \
+    --platform linux/arm64 \
+    -v "${SCRIPT_DIR}:/work" \
+    -w /work \
+    "$IMAGE" \
+    "${@:-bash}"
