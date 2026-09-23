@@ -8,6 +8,13 @@ if [ "$#" -eq 0 ]; then
     exit 1
 fi
 
+# test that we are running a Debian-based ARM64
+if [ "$(dpkg --print-architecture 2>/dev/null)" != "arm64" ]; then
+    echo "ERROR: This script must be run on a Debian-based ARM64 system." >&2
+    echo "Consider using ./start-arm64-docker for a cross-platform Docker container" >&2
+    exit 1
+fi
+
 DEB_SUITE="${DEB_SUITE:-trixie}"
 
 topdir=$(git rev-parse --show-toplevel)
