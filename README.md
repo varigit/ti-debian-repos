@@ -3,55 +3,144 @@
 Debian-Repos is a set of scripts to build TI's Debian packages with a single
 command.
 
-The generation of a Debian package (binary and source) involves many steps, such
-as obtaining the tar of the source code, generating template files, modifying
-template files and the build system, setting environment variables etc. The
-`run.sh` script handles these steps, thus the building of a deb package for TI's
-packages is as simple as running `run.sh` with the desired package's name.
+## Quick instructions
 
-This repository is useful to the following audience:
-1. Potential package contributors who want to fix bugs or add enhancements to
-TI packages
-2. Users who want a package with the latest changes to the master branch
-3. Anyone who wants to study Debian packaging
-
-## Structure and HowTo Use:
-
-The `run.sh` file is the "main" script that should be run. It takes as argument
-the name of the package to be built.
-
-Each TI package has a corresponding directory, named after its source package.
-Within this directory exists the `suite/<distro-variant>/debian/` path. All
-Debian related files (`control`, `rules`, man pages etc) for the package are
-located here.
-
-There also exists a `<package-name>/version.sh` file. This file is sourced by
-`run.sh`. It exports a bunch of variables for `run.sh` to use. It also contains
-a `run_prep` function, which `run.sh` calls. `run_prep` carries out all
-package-specific operations needed to build the deb files.
-
-To build a package, the syntax is:
+To build a package, run:
 
 ```sh
 ./run.sh <package-name>
 ```
 
-> [!NOTE]  
-> The default suite is `trixie`. To build for `bookworm`, set `DEB_SUITE` to 
-> `bookworm` in your environment
->
-> ```sh
-> DEB_SUITE=bookworm ./run.sh <package-name>
-> ```
-
-This command carries out all necessary steps to build the package. The
-package and all related files are then stored in `build/<package-name>`.
-Note that certain packages may require root privileges.
-
-For example: to build `ti-linux-kernel`, the command is:
+The default suite is Trixie. To build for a different suite, for example
+Bookworm, set `DEB_SUITE`:
 
 ```sh
-./run.sh ti-linux-kernel
+DEB_SUITE=bookworm ./run.sh <package-name>
 ```
 
-The output is then found in `build/ti-linux-kernel/`.
+The build result will be stored in:
+
+```text
+build/<suite>/<package-name>
+```
+
+The build needs to run on an ARM64 Debian-based system using the corresponding
+Debian release. See the longer instructions below for details.
+
+## Longer instructions
+
+The generation of a Debian package involves several steps, such as obtaining
+the source archive, generating and modifying Debian packaging files, preparing
+the build environment, installing build dependencies, and building the source
+and binary packages.
+
+The `run.sh` script handles these steps, so building one of the supported
+packages is normally as simple as running it with the desired package name.
+
+The script needs to be executed from an ARM64 Debian-based system. This can be:
+
+* an embedded system running the desired Debian release
+* an ARM64 GitHub runner
+* a cross-platform Docker container
+
+## Using a cross-platform Docker container
+
+This repository provides a Docker-based option for running an ARM64 Debian
+environment on a non-ARM64 host.
+
+The `Docker` directory contains:
+
+* `Dockerfile` with the Docker image definition
+* `build.sh` to build the ARM64 Docker image and install the required `binfmt`
+  support
+
+To build the default Trixie Docker image, run:
+
+```sh
+./Docker/build.sh
+```
+
+To build a Bookworm Docker image, run:
+
+```sh
+DEB_SUITE=bookworm ./Docker/build.sh
+```
+
+Start the default Trixie container with:
+
+```sh
+./start-arm64-docker
+```
+
+To start the Bookworm container, run:
+
+```sh
+DEB_SUITE=bookworm ./start-arm64-docker
+```
+
+Selecting the Docker image does not change the default suite used by `run.sh`.
+
+For example, after starting a Bookworm container, you still need to specify
+`DEB_SUITE=bookworm` when building a Bookworm package:
+
+```sh
+DEB_SUITE=bookworm ./run.sh <package-name>
+```
+
+Without `DEB_SUITE`, `run.sh` builds for Trixie by default.
+
+The Docker images already contain the general dependencies required for
+building Debian packages.
+
+## Required Build Dependencies
+
+There are two kinds of build dependencies:
+
+* general build dependencies
+* package-specific build dependencies
+
+The general build dependencies are already installed in the provided Docker
+images.
+
+When using a native ARM64 Debian-based system or an ARM64 GitHub runner, the
+following packages may need to be installed:
+
+* `build-essential`
+* `devscripts`
+* `debhelper`
+* `dpkg-dev`
+* `equivs`
+* `git`
+* `ca-certificates`
+
+Individual packages may require additional build dependencies. For example, a
+Qt application may require additional Qt development libraries.
+
+Package-specific build dependencies are installed automatically during the
+package build and normally do not need to be installed manually.
+
+## Information for Developers
+
+Each supported TI package has a corresponding directory named after its Debian
+source package.
+
+The Debian packaging files are located under:
+
+```text
+<package-name>/suite/<distro-variant>/debian/
+```
+
+This directory contains files such as `control`, `rules`, man pages, and other
+Debian packaging files.
+
+Each package also contains:
+
+```text
+<package-name>/version.sh
+```
+
+This file is sourced by `run.sh` and exports variables used by the build
+script.
+
+It can also define an optional `run_prep` function. `run.sh` uses this function
+for package-specific preparation before building the Debian packages.
