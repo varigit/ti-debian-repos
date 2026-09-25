@@ -1,0 +1,59 @@
+How to build optee-test.
+
+The following commands need to be run from a Debian-based ARM64 system. Please see ../README for details.
+
+
+First build optee-os
+
+./run.sh optee-os
+
+
+Then build optee-client
+./run.sh optee-client
+
+Then install packages that were created as part of optee-client
+
+dpkg -i build/trixie/optee-client/libteec2_4.7.0+git20250611+23c112a-1_arm64.deb
+dpkg -i build/trixie/optee-client/libckteec0t64_4.7.0+git20250611+23c112a-1_arm64.deb
+dpkg -i build/trixie/optee-client/libseteec0t64_4.7.0+git20250611+23c112a-1_arm64.deb
+dpkg -i build/trixie/optee-client/libteeacl0.1.0t64_4.7.0+git20250611+23c112a-1_arm64.deb
+dpkg -i build/trixie/optee-client/tee-supplicant_4.7.0+git20250611+23c112a-1_arm64.deb
+dpkg -i build/trixie/optee-client/optee-client-dev_4.7.0+git20250611+23c112a-1_arm64.deb
+
+Also install packages that were created as part of optee-os:
+
+dpkg -i build/trixie/optee-os/optee-os-dev_4.7.0+git20250807+a9690ae-1_arm64.deb
+
+Then build optee-test
+
+./run.sh optee-test
+
+
+The resulting Debian package will be called optee-test-k3.
+It has compatibility for the complete K3 platform (e.g. VAR-SOM-AM62, VAR-SOM-AM62P)
+Its name helps to distinguish optee-test for AM62 and optee-test-qemu which is provided
+by Trixie directly.
+
+
+All *.deb packages mentioned need to provided as part of the Variscite PPA:
+
+ls build/trixie/optee-*/*.deb
+build/trixie/optee-client/libckteec0t64-dbgsym_4.7.0+git20250611+23c112a-1_arm64.deb
+build/trixie/optee-client/libckteec0t64_4.7.0+git20250611+23c112a-1_arm64.deb
+build/trixie/optee-client/libseteec0t64-dbgsym_4.7.0+git20250611+23c112a-1_arm64.deb
+build/trixie/optee-client/libseteec0t64_4.7.0+git20250611+23c112a-1_arm64.deb
+build/trixie/optee-client/libteeacl0.1.0t64-dbgsym_4.7.0+git20250611+23c112a-1_arm64.deb
+build/trixie/optee-client/libteeacl0.1.0t64_4.7.0+git20250611+23c112a-1_arm64.deb
+build/trixie/optee-client/libteec2-dbgsym_4.7.0+git20250611+23c112a-1_arm64.deb
+build/trixie/optee-client/libteec2_4.7.0+git20250611+23c112a-1_arm64.deb
+build/trixie/optee-client/optee-client-dev_4.7.0+git20250611+23c112a-1_arm64.deb
+build/trixie/optee-client/tee-supplicant-dbgsym_4.7.0+git20250611+23c112a-1_arm64.deb
+build/trixie/optee-client/tee-supplicant_4.7.0+git20250611+23c112a-1_arm64.deb
+build/trixie/optee-os/optee-os-dev_4.7.0+git20250807+a9690ae-1_arm64.deb
+build/trixie/optee-test/optee-test-k3-dbgsym_4.7.0+git20250616+a15be9e-1_arm64.deb
+build/trixie/optee-test/optee-test-k3_4.7.0+git20250616+a15be9e-1_arm64.deb
+
+
+This will provide all OP TEE related packages in the version matching the 11.02.08 release.
+This means the TEE support libraries are in newer versions than provided by Debian Trixie
+for OPTEE on qemu.
