@@ -4,9 +4,12 @@ Forwarded: no
 
 --- a/libseteec/Makefile
 +++ b/libseteec/Makefile
-@@ -54,7 +54,7 @@
+@@ -54,7 +54,7 @@ $(OUT_DIR)/$(LIBSETEEC_AR_LIBRARY): $(LIBSETEEC_OBJS)
+ 
  libseteec:
  	$(VPREFIX)ln -sf $(LIB_MAJ_MIN_PAT) $(OUT_DIR)/$(LIB_MAJ_MIN)
 -	$(VPREFIX)ln -sf $(LIB_MAJ_MIN) $(OUT_DIR)/$(LIB_MAJOR)
 +	$(VPREFIX)ln -sf $(LIB_MAJ_MIN_PAT) $(OUT_DIR)/$(LIB_MAJOR)
  	$(VPREFIX)ln -sf $(LIB_MAJOR) $(OUT_DIR)/$(LIB_NAME).so
+ 
+ ################################################################################
