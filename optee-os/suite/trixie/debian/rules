@@ -16,7 +16,7 @@ OPTEE_MAKE_ARGS := \
 	dh $@
 
 override_dh_auto_build:
-	$(MAKE) $(OPTEE_MAKE_ARGS) ta_dev_kit
+	dh_auto_build -- $(OPTEE_MAKE_ARGS) ta_dev_kit
 
 override_dh_auto_test:
 
