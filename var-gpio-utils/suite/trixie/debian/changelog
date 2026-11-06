@@ -1,0 +1,4 @@
+var-gpio-utils (1.0+5d9128d134a3ab15a4ff97657e498b940467f814-r0) trixie; urgency=medium
+
+  * Add support for Debian Trixie.
+ -- Matthias P <matthias.p@variscite.com>  Fri, 6 Nov 2026 16:29:12 +0100

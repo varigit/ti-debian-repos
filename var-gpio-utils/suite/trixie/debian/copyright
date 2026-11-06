@@ -1,0 +1,15 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: meta-variscite-bsp-common
+Source: https://github.com/varigit/meta-variscite-bsp-common
+
+Files: recipes-support/var-gpio-utils/var-gpio-utils/gpiochip
+Copyright: 2026 Variscite
+License: GPL-2
+
+Files: debian/*
+Copyright: 2026 Variscite
+License: GPL-2
+
+License: GPL-2
+ On Debian systems, the complete text of the GNU General Public License
+ version 2 can be found in /usr/share/common-licenses/GPL-2.

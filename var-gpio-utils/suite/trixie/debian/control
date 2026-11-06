@@ -1,0 +1,14 @@
+Source: var-gpio-utils
+Section: embedded
+Priority: optional
+Maintainer: Matthias Proske <matthias.p@variscite.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Homepage: https://github.com/varigit/meta-variscite-bsp-common
+
+Package: var-gpio-utils
+Architecture: all
+Depends: ${misc:Depends}, gpiod
+Description: GPIO Utils for Variscite scripts
+ This package provides a helper function for GPIO handling, used
+ in Variscite scripts.
