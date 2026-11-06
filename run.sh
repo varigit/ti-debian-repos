@@ -50,10 +50,19 @@ if [ ! -f "${builddir}/${package_full_ll}.orig.tar.gz" ]; then
     git -C "${sourcedir}/${package_name}" remote update
     git -C "${sourcedir}/${package_name}" checkout "${last_tested_commit}"
     git -C "${sourcedir}/${package_name}" submodule update --init --recursive
-    tar -czf "${builddir}/${package_full_ll}.orig.tar.gz" \
-      --exclude-vcs \
-      --absolute-names "${sourcedir}/${package_name}" \
-      --transform "s,${sourcedir}/${package_name},${package_full},"
+
+    if (( ${#git_archive_paths[@]} > 0 )); then
+        git -C "${sourcedir}/${package_name}" archive \
+                --format=tar.gz \
+                --prefix="${package_full}/" \
+                --output="${builddir}/${package_full_ll}.orig.tar.gz" \
+                HEAD -- "${git_archive_paths[@]}"
+    else
+        tar -czf "${builddir}/${package_full_ll}.orig.tar.gz" \
+                --exclude-vcs \
+                --absolute-names "${sourcedir}/${package_name}" \
+                --transform "s,${sourcedir}/${package_name},${package_full},"
+    fi
 fi
 
 # Generate source package if none found
