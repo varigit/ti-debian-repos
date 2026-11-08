@@ -1,0 +1,3 @@
+recipes-connectivity/var-wireless-utils/var-wireless-utils/variscite-wireless etc/wifi/
+recipes-connectivity/var-wireless-utils/var-wireless-utils/variscite-wifi etc/wifi/
+recipes-connectivity/var-wireless-utils/var-wireless-utils/variscite-wifi.service usr/lib/systemd/system/

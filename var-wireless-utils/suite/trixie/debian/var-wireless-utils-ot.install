@@ -1,0 +1,4 @@
+recipes-connectivity/var-wireless-utils/var-wireless-utils/variscite-ot etc/openthread/
+recipes-connectivity/var-wireless-utils/var-wireless-utils/variscite-ot-client etc/openthread/
+recipes-connectivity/var-wireless-utils/var-wireless-utils/variscite-ot-server etc/openthread/
+recipes-connectivity/var-wireless-utils/var-wireless-utils/variscite-ot.service usr/lib/systemd/system/

@@ -1,0 +1,39 @@
+Source: var-wireless-utils
+Section: embedded
+Priority: optional
+Maintainer: Matthias Proske <matthias.p@variscite.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Homepage: https://github.com/varigit/meta-variscite-bsp-common
+Rules-Requires-Root: no
+
+Package: var-wireless-utils
+Architecture: all
+Depends: ${misc:Depends},
+ var-wireless-utils-wifi (= ${binary:Version}),
+ var-wireless-utils-bt (= ${binary:Version}),
+ var-wireless-utils-ot (= ${binary:Version})
+Description: Variscite wireless setup utilities (metapackage)
+ Install the Wi-Fi, Bluetooth and OpenThread setup helpers for Variscite
+ modules. The separate component packages may also be installed individually.
+
+Package: var-wireless-utils-wifi
+Architecture: all
+Depends: ${misc:Depends}
+Description: Variscite Wi-Fi setup utilities
+ Install the common wireless helper functions, the Wi-Fi startup script,
+ and the associated systemd unit.
+
+Package: var-wireless-utils-bt
+Architecture: all
+Depends: ${misc:Depends}, var-wireless-utils-wifi (= ${binary:Version})
+Description: Variscite Bluetooth setup utilities
+ Install the Bluetooth setup script and its systemd unit. The Wi-Fi package
+ supplies the shared wireless functions used by this script.
+
+Package: var-wireless-utils-ot
+Architecture: all
+Depends: ${misc:Depends}, var-wireless-utils-bt (= ${binary:Version}), procps
+Description: Variscite OpenThread setup utilities
+ Install the OpenThread setup script, client and server helpers, and its
+ systemd unit. The Bluetooth package is required as in the Yocto recipe.

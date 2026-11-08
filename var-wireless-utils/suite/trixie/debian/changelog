@@ -1,0 +1,6 @@
+var-wireless-utils (1.0+68d4cb9e6793539e370db340d6e8935a48442df1-r0) trixie; urgency=medium
+
+  * Initial Debian packaging of Variscite wireless setup scripts.
+  * Build Wi-Fi, Bluetooth and OpenThread packages with systemd units.
+
+ -- Matthias Proske <matthias.p@variscite.com>  Fri, 06 Nov 2026 21:35:00 +0100

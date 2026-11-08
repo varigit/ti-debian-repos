@@ -1,0 +1,2 @@
+recipes-connectivity/var-wireless-utils/var-wireless-utils/variscite-bt etc/bluetooth/
+recipes-connectivity/var-wireless-utils/var-wireless-utils/variscite-bt.service usr/lib/systemd/system/
