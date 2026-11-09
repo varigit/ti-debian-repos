@@ -1,0 +1,6 @@
+bcm43xx-utils (1.0+a57deb0ced939d577aaa7a8923ba7c76369761d2-r0) trixie; urgency=medium
+
+  * Add Debian Trixie packaging for the VAR-SOM-AM62 wireless startup hooks.
+  * Use only the machine-specific scripts from meta-variscite-bsp-ti.
+
+ -- Matthias Proske <matthias.p@variscite.com>  Sun, 08 Nov 2026 16:38:00 +0100

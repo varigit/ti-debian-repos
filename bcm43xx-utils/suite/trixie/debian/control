@@ -1,0 +1,27 @@
+Source: bcm43xx-utils
+Section: embedded
+Priority: optional
+Maintainer: Matthias Proske <matthias.p@variscite.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+Homepage: https://github.com/varigit/meta-variscite-bsp-ti
+
+Package: bcm43xx-utils
+Architecture: all
+Depends: ${misc:Depends},
+ i2c-tools,
+ gpiod,
+ kmod,
+ bluez,
+ udev,
+ var-gpio-utils,
+ var-wireless-utils-wifi,
+ var-wireless-utils-bt,
+ brcm-patchram-plus
+Description: Broadcom Wi-Fi and Bluetooth setup scripts for VAR-SOM-AM62
+ Hardware-specific startup hooks for the Variscite VAR-SOM-AM62 with
+ Broadcom/Cypress Wi-Fi and Bluetooth hardware. These hooks are executed
+ by the services provided by var-wireless-utils.
+ .
+ This package is not intended for VAR-SOM-AM62P or NXP i.MX boards.

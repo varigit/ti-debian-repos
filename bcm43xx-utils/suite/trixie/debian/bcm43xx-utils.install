@@ -1,0 +1,3 @@
+recipes-connectivity/bcm43xx-utils/bcm43xx-utils/am62x-var-som/bcm43xx-wifi etc/wifi/variscite-wifi.d/
+recipes-connectivity/bcm43xx-utils/bcm43xx-utils/am62x-var-som/bcm43xx-bt etc/bluetooth/variscite-bt.d/
+recipes-core/udev/udev-extraconf/am62x-var-som/38-var-ttyBT.rules etc/udev/rules.d/
